@@ -1,7 +1,8 @@
-package info.aiavci.violincompanion
+package info.aiavci.violincompanion.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+
 import info.aiavci.violincompanion.R
 
 class MainActivity : AppCompatActivity() {

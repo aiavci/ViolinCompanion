@@ -19,6 +19,10 @@
         </activity>
         <activity android:name=".ui.ScaleActivity"
             android:label="Scales and Arpeggios" />
+        <activity android:name=".ui.NotesActivity"
+            android:label="Notes" />
+        <activity android:name=".ui.NewNoteActivity"
+            android:label="New Note" />
     </application>
 
 </manifest>

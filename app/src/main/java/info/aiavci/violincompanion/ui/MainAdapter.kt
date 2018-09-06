@@ -19,7 +19,8 @@ class MainAdapter(val context: Context): BaseAdapter() {
     private val menuItemsInfos = mutableListOf<Triple<Int, String, Activity>>(
             Triple(R.drawable.music_scale, "Scales and Arpeggios", ScaleActivity()),
             Triple(R.drawable.music_note, "Tuner", ScaleActivity()),
-            Triple(R.drawable.music_symbol, "Metronome", ScaleActivity())
+            Triple(R.drawable.music_symbol, "Metronome", ScaleActivity()),
+            Triple(R.drawable.note_book, "Notes", NotesActivity())
     )
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {

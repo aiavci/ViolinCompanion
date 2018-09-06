@@ -5,8 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.LinearLayout
-import android.widget.TextView
+import info.aiavci.violincompanion.R
 import info.aiavci.violincompanion.data.Note
+import kotlinx.android.synthetic.main.note_item.view.*
+import org.jetbrains.anko.layoutInflater
+import java.util.*
 
 /**
  * Created by ${$FULLNAME}
@@ -21,8 +24,10 @@ class NotesAdapter(val context: Context): BaseAdapter() {
 
         // if it's not recycled, initialize some attributes
         menuItemView = LinearLayout(context).apply {
-            addView(TextView(context).apply {
-                text = notesList?.get(position)?.name ?: ""
+            addView(context.layoutInflater.inflate(R.layout.note_item, null).apply {
+                note_title.text = notesList?.get(position)?.name ?: ""
+                note_text.text = notesList?.get(position)?.name ?: ""
+                note_date.text = Date().toString()
             })
         }
 

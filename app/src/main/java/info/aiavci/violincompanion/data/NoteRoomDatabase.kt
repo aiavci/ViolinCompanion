@@ -18,7 +18,7 @@ abstract class NoteRoomDatabase : RoomDatabase() {
 
         var INSTANCE: NoteRoomDatabase? = null
 
-        internal fun getDatabase(context: Context): NoteRoomDatabase? {
+        internal fun getDatabase(context: Context): NoteRoomDatabase {
             if (INSTANCE == null) {
                 synchronized(NoteRoomDatabase::class.java) {
                     if (INSTANCE == null) {

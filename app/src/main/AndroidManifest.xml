@@ -21,7 +21,7 @@
             android:label="Scales and Arpeggios" />
         <activity android:name=".ui.NotesActivity"
             android:label="Notes" />
-        <activity android:name=".ui.NewNoteActivity"
+        <activity android:name=".ui.NoteEditorActivity"
             android:label="New Note" />
     </application>
 

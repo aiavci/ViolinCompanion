@@ -17,7 +17,7 @@ import org.jetbrains.anko.intentFor
  */
 class NotesActivity: BaseActivity() {
 
-    val noteViewModel: NoteViewModel by lazy {
+    private val noteViewModel: NoteViewModel by lazy {
         ViewModelProviders.of(this).get(NoteViewModel::class.java)
     }
 
@@ -30,7 +30,7 @@ class NotesActivity: BaseActivity() {
         }
 
         fab.setOnClickListener {
-            startActivityForResult(intentFor<NewNoteActivity>(), 1)
+            startActivityForResult(intentFor<NoteEditorActivity>(), 1)
         }
 
         noteViewModel.allNotes.observe(this, Observer<List<Note>> { notes ->
@@ -42,9 +42,36 @@ class NotesActivity: BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode === 1 && resultCode === Activity.RESULT_OK) {
-            val noteName = data?.getStringExtra(NewNoteActivity.EXTRA_REPLY)
-            noteViewModel.insert(Note(noteName))
+        if (
+                data != null &&
+                requestCode == 1 &&
+                resultCode == Activity.RESULT_OK
+        ) {
+
+            val noteId = data.getIntExtra(NoteEditorActivity.NOTE_ID, -1)
+
+            val noteTitle = data.getStringExtra(NoteEditorActivity.NOTE_TITLE)
+            val noteContent = data.getStringExtra(NoteEditorActivity.NOTE_CONTENT)
+
+            val noteToSave: Note
+            if (noteId != -1) {
+                noteToSave = Note(
+                    noteTitle,
+                    noteContent,
+                    noteId
+                )
+
+                noteViewModel.update(noteToSave)
+
+
+            } else {
+                noteToSave = Note(
+                    noteTitle,
+                    noteContent
+                )
+
+                noteViewModel.insert(noteToSave)
+            }
         } else {
             Toast.makeText(
                     applicationContext,

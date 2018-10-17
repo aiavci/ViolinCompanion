@@ -24,6 +24,11 @@ class NoteRepository(application: Application) {
         return allNotes
     }
 
+    fun update (note: Note) {
+        doAsync {
+            noteDao.update(note)
+        }
+    }
 
    fun insert (note: Note) {
         doAsync {

@@ -12,7 +12,7 @@ import info.aiavci.violincompanion.data.NoteRepository
  */
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
-    val noteRepository: NoteRepository by lazy {
+    private val noteRepository: NoteRepository by lazy {
         NoteRepository(application)
     }
 
@@ -20,5 +20,9 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insert(note: Note) {
         noteRepository.insert(note)
+    }
+
+    fun update(note: Note) {
+        noteRepository.update(note)
     }
 }

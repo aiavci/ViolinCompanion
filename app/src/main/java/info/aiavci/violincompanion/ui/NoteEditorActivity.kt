@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
 import info.aiavci.violincompanion.R
 import kotlinx.android.synthetic.main.activity_new_note.*
 
@@ -25,6 +27,8 @@ class NoteEditorActivity : BaseActivity() {
         intent.getStringExtra(NOTE_CONTENT)
     }
 
+    private var saveMenuItem: MenuItem? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_note)
@@ -32,8 +36,34 @@ class NoteEditorActivity : BaseActivity() {
         edit_title.setText(existingNoteTitle ?: "")
         edit_content.setText(existingNoteContent ?: "")
 
-        button_save.setOnClickListener {
+//        saveMenuItem?.apply {
+//            isEnabled = false
+//        }
+    }
+
+//    private val isChangeMade: Boolean
+//        get() = edit_title.text.toString() != existingNoteTitle ||
+//                edit_content.text.toString() != existingNoteContent
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.note_menu, menu)
+
+        saveMenuItem = menu?.findItem(R.id.action_save)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_save -> {
+            // Perform save
             performSave()
+            true
+        }
+
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
         }
     }
 

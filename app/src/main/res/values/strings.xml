@@ -2,6 +2,6 @@
     <string name="app_name">Violin Companion</string>
     <string name="hint_note">Note</string>
     <string name="hint_title">Title</string>
-    <string name="button_save">Save</string>
+    <string name="save">Save</string>
     <string name="empty_not_saved">Note not saved because it is empty.</string>
 </resources>

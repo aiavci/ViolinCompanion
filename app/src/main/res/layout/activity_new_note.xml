@@ -8,10 +8,11 @@
         android:id="@+id/edit_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/big_padding"
         android:hint="@string/hint_title"
         android:inputType="textCapSentences|textAutoComplete|textAutoCorrect"
-        android:layout_marginTop="@dimen/big_padding"
-        android:textSize="18sp" />
+        android:textAllCaps="false"
+        android:textStyle="bold"/>
 
     <EditText
         android:hint="@string/hint_note"

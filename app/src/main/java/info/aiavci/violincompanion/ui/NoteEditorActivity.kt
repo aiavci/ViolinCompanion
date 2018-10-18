@@ -3,7 +3,6 @@ package info.aiavci.violincompanion.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import info.aiavci.violincompanion.R
@@ -35,20 +34,17 @@ class NoteEditorActivity : BaseActivity() {
 
         edit_title.setText(existingNoteTitle ?: "")
         edit_content.setText(existingNoteContent ?: "")
-
-//        saveMenuItem?.apply {
-//            isEnabled = false
-//        }
     }
 
-//    private val isChangeMade: Boolean
-//        get() = edit_title.text.toString() != existingNoteTitle ||
-//                edit_content.text.toString() != existingNoteContent
+    private val isChangeMade: Boolean
+        get() = edit_title.text.toString() != existingNoteTitle ||
+                edit_content.text.toString() != existingNoteContent
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.note_menu, menu)
 
         saveMenuItem = menu?.findItem(R.id.action_save)
+        saveMenuItem?.isEnabled = true
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -70,7 +66,7 @@ class NoteEditorActivity : BaseActivity() {
     private fun performSave() {
         val noteIntent = Intent()
 
-        if (TextUtils.isEmpty(edit_content.text)) {
+        if (!isChangeMade) {
             setResult(Activity.RESULT_CANCELED, noteIntent)
         } else {
             val noteTitle = edit_title.text.toString()

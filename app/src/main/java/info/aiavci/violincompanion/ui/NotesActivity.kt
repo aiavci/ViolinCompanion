@@ -75,7 +75,7 @@ class NotesActivity: BaseActivity() {
         } else {
             Toast.makeText(
                     applicationContext,
-                    R.string.empty_not_saved,
+                    R.string.no_change_made,
                     Toast.LENGTH_LONG).show()
         }
 

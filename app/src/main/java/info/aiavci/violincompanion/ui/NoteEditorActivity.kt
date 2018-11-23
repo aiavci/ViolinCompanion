@@ -46,6 +46,8 @@ class NoteEditorActivity : BaseActivity() {
         saveMenuItem = menu?.findItem(R.id.action_save)
         saveMenuItem?.isEnabled = true
 
+        menu?.findItem(R.id.action_delete)?.isEnabled = true
+
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -56,11 +58,36 @@ class NoteEditorActivity : BaseActivity() {
             true
         }
 
+        R.id.action_delete -> {
+            // Perform delete
+            performDelete()
+            true
+        }
+
         else -> {
             // If we got here, the user's action was not recognized.
             // Invoke the superclass to handle it.
             super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun performDelete() {
+        val noteIntent = Intent()
+
+        noteIntent.apply {
+            putExtra(NOTE_ID, existingNoteId)
+
+            val noteTitle = edit_title.text.toString()
+            val noteContent = edit_content.text.toString()
+
+            putExtra(NOTE_TITLE, noteTitle)
+            putExtra(NOTE_CONTENT, noteContent)
+            putExtra(NOTE_IS_DELETE, true)
+        }
+
+        setResult(Activity.RESULT_OK, noteIntent)
+
+        finish()
     }
 
     private fun performSave() {
@@ -91,5 +118,6 @@ class NoteEditorActivity : BaseActivity() {
         const val NOTE_ID = "NOTE_ID"
         const val NOTE_TITLE = "NOTE_TITLE"
         const val NOTE_CONTENT = "NOTE_CONTENT"
+        const val NOTE_IS_DELETE = "NOTE_IS_DELETE"
     }
 }

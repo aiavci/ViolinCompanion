@@ -30,6 +30,12 @@ class NoteRepository(application: Application) {
         }
     }
 
+    fun delete (note: Note) {
+        doAsync {
+            noteDao.delete(note)
+        }
+    }
+
    fun insert (note: Note) {
         doAsync {
             noteDao.insert(note)

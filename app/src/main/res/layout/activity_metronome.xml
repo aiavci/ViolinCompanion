@@ -2,50 +2,81 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_height="wrap_content"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/seekLayout"
+        app:layout_constraintStart_toStartOf="@id/seekLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/bpmTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="123 BPM"/>
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Play"
+            android:src="@android:drawable/ic_media_play"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/seekLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="279dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
-    <TextView
-        android:id="@+id/bpmTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="8dp"
-        android:text="123 BPM"
-        app:layout_constraintBottom_toBottomOf="@id/seekBar"
-        app:layout_constraintStart_toStartOf="@id/seekBar"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <ImageButton
+            android:id="@+id/minusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Minus button"
+            app:srcCompat="@android:drawable/arrow_down_float"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="239dp"/>
 
-    <ImageButton
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="Play"
-        android:src="@android:drawable/ic_media_play"
-        app:layout_constraintBottom_toBottomOf="@id/seekBar"
-        app:layout_constraintEnd_toEndOf="@id/seekBar"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"/>
+
+        <ImageButton
+            android:id="@+id/plusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Minus button"
+            app:srcCompat="@android:drawable/arrow_up_float"
+            tools:layout_editor_absoluteX="339dp"
+            tools:layout_editor_absoluteY="239dp"/>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

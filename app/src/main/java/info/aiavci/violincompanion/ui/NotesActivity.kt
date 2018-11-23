@@ -48,35 +48,59 @@ class NotesActivity: BaseActivity() {
                 resultCode == Activity.RESULT_OK
         ) {
 
+            val isDelete = data.getBooleanExtra(NoteEditorActivity.NOTE_IS_DELETE, false)
+
             val noteId = data.getIntExtra(NoteEditorActivity.NOTE_ID, -1)
 
             val noteTitle = data.getStringExtra(NoteEditorActivity.NOTE_TITLE)
             val noteContent = data.getStringExtra(NoteEditorActivity.NOTE_CONTENT)
 
-            val noteToSave: Note
-            if (noteId != -1) {
-                noteToSave = Note(
-                    noteTitle,
-                    noteContent,
-                    noteId
-                )
-
-                noteViewModel.update(noteToSave)
-
-
-            } else {
-                noteToSave = Note(
-                    noteTitle,
-                    noteContent
-                )
-
-                noteViewModel.insert(noteToSave)
-            }
+            performNoteOperation(noteId, noteTitle, noteContent, isDelete)
         } else {
             Toast.makeText(
                     applicationContext,
                     R.string.no_change_made,
                     Toast.LENGTH_LONG).show()
+        }
+
+    }
+
+    private fun performNoteOperation(
+            noteId: Int,
+            noteTitle: String,
+            noteContent: String,
+            isDelete: Boolean
+    ) {
+        val noteToSave: Note
+
+        when {
+            isDelete -> {
+                noteToSave = Note(
+                        noteTitle,
+                        noteContent,
+                        noteId
+                )
+
+                noteViewModel.delete(noteToSave)
+            }
+            noteId != -1 -> {
+                noteToSave = Note(
+                        noteTitle,
+                        noteContent,
+                        noteId
+                )
+
+                noteViewModel.update(noteToSave)
+
+            }
+            else -> {
+                noteToSave = Note(
+                        noteTitle,
+                        noteContent
+                )
+
+                noteViewModel.insert(noteToSave)
+            }
         }
 
     }

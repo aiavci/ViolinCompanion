@@ -29,6 +29,7 @@ git clone git@github.com:aiavci/ViolinCompanion.git
 
 Below is a list of some of the tools used.
 
+- Android Architecture Components: Allow for clean architecture with Room, LiveData and ViewModels
 - Stetho: Allow DB debugging
 - Timber: Clean console logging
 - anko: Helper tools for better Kotlin development

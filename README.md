@@ -39,8 +39,6 @@ Below is a list of some of the tools used.
 ![NewNote](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/docs/images/NewNote.png)
 ![NotesActivity](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/docs/images/NotesActivity.png)
 
-NotesActivity
-
 ## Support
 
 Please [open an issue](https://github.com/aiavci/ViolinCompanion/issues/new) for support.

@@ -34,10 +34,10 @@ Below is a list of some of the tools used.
 - anko: Helper tools for better Kotlin development
 
 ## Images
-![Main Menu](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/MainMenu.png)
-![Metronome](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/Metronome.png)
-![NewNote](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/NewNote.png)
-![NotesActivity](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/NotesActivity.png)
+![Main Menu](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/docs/images/MainMenu.png)
+![Metronome](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/docs/images/Metronome.png)
+![NewNote](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/docs/images/NewNote.png)
+![NotesActivity](https://raw.githubusercontent.com/aiavci/ViolinCompanion/master/docs/images/NotesActivity.png)
 
 NotesActivity
 
